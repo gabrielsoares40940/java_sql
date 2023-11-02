@@ -8,7 +8,7 @@ package model.DAO;
  *
  * @author gabri_
  */
-public class itemDAO {
+/*public class itemDAO {
     private Connection con;
     
     public itemDAO() {
@@ -16,6 +16,6 @@ public class itemDAO {
     }
     
     public void inserir(item it) {
-        String sql = "INSERT INTO "
+        String sql = "INSERT INTO ";
     }
-}
+}*/

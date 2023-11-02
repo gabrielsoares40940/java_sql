@@ -6,7 +6,7 @@ package br.com.ConexaoBanco;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import.java.sql.SQLException;
+//import.java.sql.SQLException;
 /**
  *
  * @author gabri_
@@ -19,15 +19,15 @@ public class ConexaoMySQL {
     }
 
 
-public static java.sql.Connection getConexaoMySQL() {
+/*public static java.sql.Connection getConexaoMySQL() {
     Connection connection = null;
    try {
        String conexao = "com.mysql.jdbc.Driver";
        
        Class.forName(conexao);
        
-       String retifica = "localhost"
+       String retifica = "localhost";
        
-   }
+   }*/
     
 }

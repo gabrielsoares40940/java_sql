@@ -4,6 +4,8 @@
  */
 package com.mycompany.java_banco;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author gabri_
@@ -48,6 +50,7 @@ public class frame1 extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoRetifica.png"))); // NOI18N
         jLabel1.setText("Retífica de Peças Soares™");
 
         resposta_usuario.addActionListener(new java.awt.event.ActionListener() {
@@ -66,14 +69,13 @@ public class frame1 extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 69, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(51, 51, 51))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(usuario)
@@ -84,16 +86,16 @@ public class frame1 extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(resposta_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
+                        .addGap(175, 175, 175)
                         .addComponent(enviar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addGap(63, 63, 63)
                 .addComponent(jLabel1)
-                .addGap(58, 58, 58)
+                .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usuario)
                     .addComponent(resposta_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -101,47 +103,46 @@ public class frame1 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(senha)
                     .addComponent(resposta_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGap(27, 27, 27)
                 .addComponent(enviar)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
-        // TODO add your handling code here:
+        if (resposta_usuario.getText().equals("admin") && new String (resposta_senha.getPassword()).equals("admin")){
+            JOptionPane.showMessageDialog(null, "Logado.");
+                        
+            frame2 f2 = new frame2();
+            f2.setVisible(true);
+            
+            this.setVisible(false);
+
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos.");
+        }
     }//GEN-LAST:event_enviarActionPerformed
 
     private void resposta_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta_usuarioActionPerformed
-        String resposta_usuario;
 
-        if (resposta_usuario == "admin") {
-            System.out.println("Funcionou!");
-        } else {
-            System.out.println("Não funcionou...");
-        }
     }//GEN-LAST:event_resposta_usuarioActionPerformed
 
     private void resposta_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta_senhaActionPerformed
-        String resposta_senha;
 
-        if (resposta_senha == "admin") {
-            System.out.println("Funcionou!");
-        } else {
-            System.out.println("Não funcionou...");
-        }
     }//GEN-LAST:event_resposta_senhaActionPerformed
 
     /**
