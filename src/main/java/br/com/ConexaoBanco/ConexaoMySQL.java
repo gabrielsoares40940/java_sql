@@ -2,6 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
+
 package br.com.ConexaoBanco;
 
 import java.sql.Connection;
@@ -11,6 +13,7 @@ import java.sql.DriverManager;
  *
  * @author gabri_
  */
+/*
 public class ConexaoMySQL {
     public static String status = "Não conectou...";
     
@@ -29,5 +32,5 @@ public class ConexaoMySQL {
        String retifica = "localhost";
        
    }*/
-    
-}
+   
+//}
