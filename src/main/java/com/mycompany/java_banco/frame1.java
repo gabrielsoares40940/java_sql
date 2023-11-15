@@ -40,25 +40,19 @@ public class frame1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
-<<<<<<< HEAD
         jPanel1.setToolTipText("");
-=======
->>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
 
         usuario.setText("Usuário");
 
         senha.setText("Senha");
 
-<<<<<<< HEAD
         enviar.setBackground(new java.awt.Color(69, 161, 230));
         enviar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         enviar.setForeground(new java.awt.Color(255, 255, 255));
         enviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoEnviar.png"))); // NOI18N
         enviar.setText("ENVIAR");
         enviar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-=======
         enviar.setText("Enviar");
->>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
         enviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enviarActionPerformed(evt);
@@ -85,11 +79,9 @@ public class frame1 extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 172, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-=======
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -107,14 +99,12 @@ public class frame1 extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(enviar)
                         .addGap(177, 177, 177))
->>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(senha)
                         .addGap(200, 200, 200))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(usuario)
                         .addGap(194, 194, 194))))
-<<<<<<< HEAD
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -130,21 +120,16 @@ public class frame1 extends javax.swing.JFrame {
                         .addGap(146, 146, 146)
                         .addComponent(enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-=======
->>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-<<<<<<< HEAD
                 .addGap(67, 67, 67)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-=======
                 .addGap(63, 63, 63)
                 .addComponent(jLabel1)
                 .addGap(16, 16, 16)
->>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
                 .addComponent(usuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(resposta_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,13 +138,10 @@ public class frame1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(resposta_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-<<<<<<< HEAD
                 .addComponent(enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(105, Short.MAX_VALUE))
-=======
                 .addComponent(enviar)
                 .addContainerGap(122, Short.MAX_VALUE))
->>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
