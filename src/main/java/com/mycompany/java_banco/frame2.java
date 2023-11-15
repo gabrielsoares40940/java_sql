@@ -40,7 +40,11 @@ public class frame2 extends javax.swing.JFrame {
         bandeira = new javax.swing.JTextField();
         data = new javax.swing.JTextField();
         pagamento = new javax.swing.JTextField();
+<<<<<<< HEAD
         enviar_pesquisa = new javax.swing.JButton();
+=======
+        tudo = new javax.swing.JButton();
+>>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -91,7 +95,10 @@ public class frame2 extends javax.swing.JFrame {
         });
 
         enviar_tabela.setBackground(new java.awt.Color(69, 161, 230));
+<<<<<<< HEAD
         enviar_tabela.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+=======
+>>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
         enviar_tabela.setForeground(new java.awt.Color(255, 255, 255));
         enviar_tabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoEnviar.png"))); // NOI18N
         enviar_tabela.setText("ENVIAR");
@@ -136,6 +143,7 @@ public class frame2 extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         enviar_pesquisa.setBackground(new java.awt.Color(69, 161, 230));
         enviar_pesquisa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         enviar_pesquisa.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,6 +153,17 @@ public class frame2 extends javax.swing.JFrame {
         enviar_pesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enviar_pesquisaActionPerformed(evt);
+=======
+        tudo.setBackground(new java.awt.Color(69, 161, 230));
+        tudo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tudo.setForeground(new java.awt.Color(255, 255, 255));
+        tudo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoLupa.png"))); // NOI18N
+        tudo.setText("PESQUISAR");
+        tudo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tudo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tudoActionPerformed(evt);
+>>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
             }
         });
 
@@ -180,7 +199,11 @@ public class frame2 extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, janela2Layout.createSequentialGroup()
                                         .addComponent(pesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                                         .addGap(18, 18, 18)
+<<<<<<< HEAD
                                         .addComponent(enviar_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                                        .addComponent(tudo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
                                     .addGroup(janela2Layout.createSequentialGroup()
                                         .addGap(29, 29, 29)
                                         .addComponent(jLabel5))))
@@ -227,7 +250,11 @@ public class frame2 extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(janela2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+<<<<<<< HEAD
                     .addComponent(enviar_pesquisa)
+=======
+                    .addComponent(tudo)
+>>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
                     .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
@@ -320,7 +347,11 @@ public class frame2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pagamentoActionPerformed
 
+<<<<<<< HEAD
     private void enviar_pesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_pesquisaActionPerformed
+=======
+    private void tudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tudoActionPerformed
+>>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
         DefaultTableModel dadosPagamento = (DefaultTableModel) tabela.getModel();
         final TableRowSorter<TableModel> sorter = new TableRowSorter<>(dadosPagamento);
 
@@ -332,9 +363,14 @@ public class frame2 extends javax.swing.JFrame {
             sorter.setRowFilter(null);
         } else {
             sorter.setRowFilter(RowFilter.regexFilter(botaoPesquisa));
+<<<<<<< HEAD
             JOptionPane.showMessageDialog(null, "Valores não encontrados.");
         }
     }//GEN-LAST:event_enviar_pesquisaActionPerformed
+=======
+        }
+    }//GEN-LAST:event_tudoActionPerformed
+>>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
 
     private void pesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaActionPerformed
         
@@ -384,7 +420,10 @@ public class frame2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bandeira;
     private javax.swing.JTextField data;
+<<<<<<< HEAD
     private javax.swing.JButton enviar_pesquisa;
+=======
+>>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
     private javax.swing.JButton enviar_tabela;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -398,6 +437,10 @@ public class frame2 extends javax.swing.JFrame {
     private javax.swing.JTextField parcelamento;
     private javax.swing.JTextField pesquisa;
     private javax.swing.JTable tabela;
+<<<<<<< HEAD
+=======
+    private javax.swing.JButton tudo;
+>>>>>>> 66bcc71073604655e472fb75669c68b7fea72e67
     private javax.swing.JTextField valor;
     // End of variables declaration//GEN-END:variables
 }
