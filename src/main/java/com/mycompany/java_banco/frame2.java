@@ -4,9 +4,11 @@
  */
 package com.mycompany.java_banco;
 
-import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -33,26 +35,36 @@ public class frame2 extends javax.swing.JFrame {
         janela2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
-        pix = new javax.swing.JButton();
-        cartao = new javax.swing.JButton();
-        especie = new javax.swing.JButton();
         valor = new javax.swing.JTextField();
         enviar_tabela = new javax.swing.JButton();
         bandeira = new javax.swing.JTextField();
         data = new javax.swing.JTextField();
+        pagamento = new javax.swing.JTextField();
+        tudo = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        pesquisa = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        parcelamento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Retífica de Peças Soares™");
 
-        janela2.setBackground(new java.awt.Color(242, 236, 59));
+        janela2.setBackground(new java.awt.Color(153, 204, 255));
 
-        tabela.setBackground(new java.awt.Color(255, 245, 171));
+        tabela.setBackground(new java.awt.Color(69, 161, 230));
+        tabela.setForeground(new java.awt.Color(255, 255, 255));
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"31/10/2023", "200,00", "MasterCard"}
+                {"31/10/2023", "Cartão", "200,00", "MasterCard", "2x"},
+                {"01/11/1023", "Pix", "50,00", null, null},
+                {"02/11/2023", "Espécie", "100,00", null, null}
             },
             new String [] {
-                "Data", "Valor (R$)", "Bandeira"
+                "Data", "Pagamento", "Valor (R$)", "Bandeira", "Parcelamento"
             }
         ));
         jScrollPane1.setViewportView(tabela);
@@ -60,36 +72,10 @@ public class frame2 extends javax.swing.JFrame {
             tabela.getColumnModel().getColumn(0).setResizable(false);
             tabela.getColumnModel().getColumn(1).setResizable(false);
             tabela.getColumnModel().getColumn(2).setResizable(false);
+            tabela.getColumnModel().getColumn(3).setResizable(false);
+            tabela.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        pix.setBackground(new java.awt.Color(255, 245, 171));
-        pix.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logopix.png"))); // NOI18N
-        pix.setText("PIX");
-        pix.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pixActionPerformed(evt);
-            }
-        });
-
-        cartao.setBackground(new java.awt.Color(255, 245, 171));
-        cartao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoCartao.png"))); // NOI18N
-        cartao.setText("CARTÃO");
-        cartao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cartaoActionPerformed(evt);
-            }
-        });
-
-        especie.setBackground(new java.awt.Color(255, 245, 171));
-        especie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoDinheiro.png"))); // NOI18N
-        especie.setText("ESPÉCIE");
-        especie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                especieActionPerformed(evt);
-            }
-        });
-
-        valor.setBackground(new java.awt.Color(255, 245, 171));
         valor.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 valorFocusGained(evt);
@@ -104,21 +90,23 @@ public class frame2 extends javax.swing.JFrame {
             }
         });
 
-        enviar_tabela.setText("Enviar");
+        enviar_tabela.setBackground(new java.awt.Color(69, 161, 230));
+        enviar_tabela.setForeground(new java.awt.Color(255, 255, 255));
+        enviar_tabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoEnviar.png"))); // NOI18N
+        enviar_tabela.setText("ENVIAR");
+        enviar_tabela.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         enviar_tabela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enviar_tabelaActionPerformed(evt);
             }
         });
 
-        bandeira.setBackground(new java.awt.Color(255, 245, 171));
         bandeira.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bandeiraActionPerformed(evt);
             }
         });
 
-        data.setBackground(new java.awt.Color(255, 245, 171));
         data.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 dataFocusGained(evt);
@@ -133,6 +121,50 @@ public class frame2 extends javax.swing.JFrame {
             }
         });
 
+        pagamento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pagamentoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pagamentoFocusLost(evt);
+            }
+        });
+        pagamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pagamentoActionPerformed(evt);
+            }
+        });
+
+        tudo.setBackground(new java.awt.Color(69, 161, 230));
+        tudo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tudo.setForeground(new java.awt.Color(255, 255, 255));
+        tudo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoLupa.png"))); // NOI18N
+        tudo.setText("PESQUISAR");
+        tudo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tudo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tudoActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Data");
+
+        jLabel2.setText("Pagamento");
+
+        jLabel3.setText("Valor");
+
+        jLabel4.setText("Bandeira");
+
+        pesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisaActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Pesquisar");
+
+        jLabel6.setText("Parcelamento");
+
         javax.swing.GroupLayout janela2Layout = new javax.swing.GroupLayout(janela2);
         janela2.setLayout(janela2Layout);
         janela2Layout.setHorizontalGroup(
@@ -140,46 +172,88 @@ public class frame2 extends javax.swing.JFrame {
             .addGroup(janela2Layout.createSequentialGroup()
                 .addGroup(janela2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(janela2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(janela2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cartao, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pix, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(especie, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(janela2Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
                         .addGroup(janela2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bandeira, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(janela2Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(enviar_tabela, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)))
+                                .addContainerGap()
+                                .addGroup(janela2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, janela2Layout.createSequentialGroup()
+                                        .addComponent(pesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tudo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(janela2Layout.createSequentialGroup()
+                                        .addGap(29, 29, 29)
+                                        .addComponent(jLabel5))))
+                            .addGroup(janela2Layout.createSequentialGroup()
+                                .addGroup(janela2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(janela2Layout.createSequentialGroup()
+                                        .addGap(76, 76, 76)
+                                        .addGroup(janela2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(janela2Layout.createSequentialGroup()
+                                                .addGap(14, 14, 14)
+                                                .addComponent(jLabel6))
+                                            .addGroup(janela2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(parcelamento, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(janela2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(janela2Layout.createSequentialGroup()
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(jLabel2))
+                                                    .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(pagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(janela2Layout.createSequentialGroup()
+                                                        .addGap(32, 32, 32)
+                                                        .addComponent(jLabel3))
+                                                    .addGroup(janela2Layout.createSequentialGroup()
+                                                        .addGap(25, 25, 25)
+                                                        .addComponent(jLabel4))
+                                                    .addComponent(bandeira, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(janela2Layout.createSequentialGroup()
+                                        .addGap(108, 108, 108)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(janela2Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(enviar_tabela, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         janela2Layout.setVerticalGroup(
             janela2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(janela2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(pix)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(janela2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tudo)
+                    .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(cartao)
-                .addGap(18, 18, 18)
-                .addComponent(especie)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bandeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(parcelamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(enviar_tabela)
-                .addGap(70, 70, 70))
+                .addComponent(enviar_tabela, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(janela2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -197,18 +271,6 @@ public class frame2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pixActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pixActionPerformed
-
-    private void cartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cartaoActionPerformed
-
-    private void especieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_especieActionPerformed
-
     private void valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_valorActionPerformed
@@ -217,22 +279,68 @@ public class frame2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bandeiraActionPerformed
 
-    private void dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dataActionPerformed
-
     private void enviar_tabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_tabelaActionPerformed
         DefaultTableModel dadosPagamento = (DefaultTableModel) tabela.getModel();
         
-        Object[] dados = {data.getText(), valor.getText(), bandeira.getText()};
+        Object[] dados = {data.getText(), pagamento.getText(), valor.getText(), bandeira.getText(), parcelamento.getText()};
         
-        if(data.getText().equals("") && valor.getText().equals("") && bandeira.getText().equals("")) {
+        if(data.getText().equals("") && pagamento.getText().equals("") && valor.getText().equals("") && bandeira.getText().equals("") && parcelamento.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Insira valores válidos.");
         } else {
             dadosPagamento.addRow(dados);
-        }
+            data.setText("");
+            pagamento.setText("");
+            valor.setText("");
+            bandeira.setText("");
+            parcelamento.setText("");
 
+        }
+        
     }//GEN-LAST:event_enviar_tabelaActionPerformed
+
+    
+    private void valorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_valorFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valorFocusGained
+
+    private void valorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_valorFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valorFocusLost
+
+    private void pagamentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pagamentoFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pagamentoFocusGained
+
+    private void pagamentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pagamentoFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pagamentoFocusLost
+
+    private void pagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pagamentoActionPerformed
+
+    private void tudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tudoActionPerformed
+        DefaultTableModel dadosPagamento = (DefaultTableModel) tabela.getModel();
+        final TableRowSorter<TableModel> sorter = new TableRowSorter<>(dadosPagamento);
+
+        tabela.setRowSorter(sorter);
+
+        String botaoPesquisa = pesquisa.getText();
+
+        if (botaoPesquisa.equals("Pix") && botaoPesquisa.equals("Cartão") && botaoPesquisa.equals("Espécie")) {
+            sorter.setRowFilter(null);
+        } else {
+            sorter.setRowFilter(RowFilter.regexFilter(botaoPesquisa));
+        }
+    }//GEN-LAST:event_tudoActionPerformed
+
+    private void pesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaActionPerformed
+        
+    }//GEN-LAST:event_pesquisaActionPerformed
+
+    private void dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataActionPerformed
 
     private void dataFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataFocusLost
         // TODO add your handling code here:
@@ -241,14 +349,6 @@ public class frame2 extends javax.swing.JFrame {
     private void dataFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_dataFocusGained
-
-    private void valorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_valorFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_valorFocusGained
-
-    private void valorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_valorFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_valorFocusLost
 
     /**
      * @param args the command line arguments
@@ -266,35 +366,36 @@ public class frame2 extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frame2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frame2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frame2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frame2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frame2().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new frame2().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bandeira;
-    private javax.swing.JButton cartao;
     private javax.swing.JTextField data;
     private javax.swing.JButton enviar_tabela;
-    private javax.swing.JButton especie;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel janela2;
-    private javax.swing.JButton pix;
+    private javax.swing.JTextField pagamento;
+    private javax.swing.JTextField parcelamento;
+    private javax.swing.JTextField pesquisa;
     private javax.swing.JTable tabela;
+    private javax.swing.JButton tudo;
     private javax.swing.JTextField valor;
     // End of variables declaration//GEN-END:variables
 }
