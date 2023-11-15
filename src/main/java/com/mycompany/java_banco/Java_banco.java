@@ -17,7 +17,7 @@ public class Java_banco {
        String usuario = "root";
        String senha = "";
        Class.forName("com.mysql.cj.jdbc.Driver");
-     
+      
        try {
            Connection conexao = DriverManager.getConnection(url, usuario, senha);
            
